@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <applicability_mode>query</applicability_mode>
+        <autopilot_topic>false</autopilot_topic>
+        <category/>
+        <channels/>
+        <connect_queue/>
+        <context_profiles/>
+        <description>XXXX</description>
+        <dialog_acts_enabled>false</dialog_acts_enabled>
+        <expose_on_palette>false</expose_on_palette>
+        <flexible_conversation_switching>true</flexible_conversation_switching>
+        <foundational>false</foundational>
+        <graph>{
+  "graph_api_version": "1.0.66",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "cfdc0cdcb9be4584b817c9c37bd6a22b": {
+          "id": "cfdc0cdcb9be4584b817c9c37bd6a22b",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "4825f083fd274fb7b169d727491db98d": {
+          "id": "4825f083fd274fb7b169d727491db98d",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "f8dbb3b3e0da4fc4abd7843f5f4de917": {
+          "id": "f8dbb3b3e0da4fc4abd7843f5f4de917",
+          "stepType": "ImageOutput",
+          "name": "Employee Directory",
+          "url": {
+            "value": "team_3474930_1720011562847.png",
+            "mode": "db_image"
+          },
+          "altText": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "c74422b782c84da1a347576de5ea4060": {
+          "id": "c74422b782c84da1a347576de5ea4060",
+          "stepType": "TextOutput",
+          "name": "Response1",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Qual  usuario você deseja achar ? "
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "8b02a176ba6f422481e2255ec4cd8f9b"
+            }
+          ],
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "0b7b9afeaa5e4c90a677c5c2f087f7c9": {
+          "id": "0b7b9afeaa5e4c90a677c5c2f087f7c9",
+          "stepType": "TextPrompt",
+          "name": "User Name",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Informe o nome do usuário para efetuarmos a busca: "
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Verificando..."
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "936b900611314bc1bb7b14c5b1464bca",
+          "detailDescription": "",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          },
+          "requestFeedback": true
+        },
+        "4be7e1b8325a4aefa5569829c2b12b18": {
+          "name": "Search User",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Encontramos esse usuario: "
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "dd3d360e78a54b60a5c95d47c0a16111",
+          "detailDescription": "",
+          "id": "4be7e1b8325a4aefa5569829c2b12b18",
+          "stepType": "ReferenceChoicePrompt",
+          "mode": "glide_record",
+          "script": "",
+          "metadataScript": "",
+          "cardData": {},
+          "isMultipleSelect": false,
+          "noRecordsResponseMsg": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Não foram encontrados usuarios com esse nome."
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": "nameLIKE{{vaInputs.user_name}}^nameSTARTSWITH{{vaInputs.user_name}}"
+          },
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        }
+      },
+      "edges": [
+        {
+          "id": "fbff630e582742f89dbbd420cc6d4734",
+          "edgeType": "Edge",
+          "source": "cfdc0cdcb9be4584b817c9c37bd6a22b",
+          "target": "f8dbb3b3e0da4fc4abd7843f5f4de917",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "649605b503014520a5c70b6f4cece7fb",
+          "edgeType": "Edge",
+          "source": "f8dbb3b3e0da4fc4abd7843f5f4de917",
+          "target": "c74422b782c84da1a347576de5ea4060",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "9a8f302eba0542de8b64e1b325325e4a",
+          "edgeType": "Edge",
+          "source": "c74422b782c84da1a347576de5ea4060",
+          "target": "0b7b9afeaa5e4c90a677c5c2f087f7c9",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "6ff4da5c1577453db9a05df70d4ff5d2",
+          "edgeType": "Edge",
+          "source": "0b7b9afeaa5e4c90a677c5c2f087f7c9",
+          "target": "4be7e1b8325a4aefa5569829c2b12b18",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "855b77c34eec49b5bd6e29837f0606db",
+          "edgeType": "Edge",
+          "source": "4be7e1b8325a4aefa5569829c2b12b18",
+          "target": "4825f083fd274fb7b169d727491db98d",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "936b900611314bc1bb7b14c5b1464bca": {
+      "id": "936b900611314bc1bb7b14c5b1464bca",
+      "name": "user_name",
+      "label": "User Name",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs",
+      "encryptionHashFunction": "SHA-256",
+      "encryptionSalt": {
+        "value": "MTcyMDA4Nzk2ODExNCBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+        "mode": "simple"
+      },
+      "nodeId": "0b7b9afeaa5e4c90a677c5c2f087f7c9",
+      "isHidden": false
+    },
+    "dd3d360e78a54b60a5c95d47c0a16111": {
+      "id": "dd3d360e78a54b60a5c95d47c0a16111",
+      "name": "search_user",
+      "label": "Search User",
+      "varType": "reference",
+      "table": "sys_user",
+      "category": "vaInputs",
+      "nodeId": "4be7e1b8325a4aefa5569829c2b12b18",
+      "isHidden": false
+    }
+  }
+}</graph>
+        <key_phrases/>
+        <library>true</library>
+        <live_agent>false</live_agent>
+        <model_type>nlu_keyword</model_type>
+        <modify_confirmation_enabled>false</modify_confirmation_enabled>
+        <name>Test Mensagem de Confirmação e Padrão</name>
+        <nlu_intent/>
+        <nlu_intent_label/>
+        <nlu_model/>
+        <nlu_model_label/>
+        <nlu_provider/>
+        <palette_label/>
+        <roles/>
+        <root_topic_id/>
+        <secure_custom_input_control>false</secure_custom_input_control>
+        <source_topic_id/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>foco</sys_created_by>
+        <sys_created_on>2024-07-03 11:21:59</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>383d1d23834b8610cf05e030ceaad358</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>Test Mensagem de Confirmação e Padrão</sys_name>
+        <sys_package display_value="NeedIt Virtual Agent Conversations" source="x_606182_nvac">aa0ec7fa83030210cf05e030ceaad3ac</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt Virtual Agent Conversations">aa0ec7fa83030210cf05e030ceaad3ac</sys_scope>
+        <sys_update_name>sys_cb_topic_383d1d23834b8610cf05e030ceaad358</sys_update_name>
+        <sys_updated_by>foco</sys_updated_by>
+        <sys_updated_on>2024-07-04 10:17:04</sys_updated_on>
+        <title>Test Mensagem de Confirmação e Padrão</title>
+        <triggerable_by_notification>false</triggerable_by_notification>
+        <type>TOPIC_BLOCK</type>
+    </sys_cb_topic>
+    <sys_translated_text action="delete_multiple" query="documentkey=383d1d23834b8610cf05e030ceaad358"/>
+</record_update>

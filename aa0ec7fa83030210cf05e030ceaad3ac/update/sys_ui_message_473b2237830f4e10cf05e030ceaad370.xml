@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message">
+    <sys_ui_message action="INSERT_OR_UPDATE">
+        <application>Virtual Agent</application>
+        <code/>
+        <commented_message/>
+        <key>when needed</key>
+        <language>en</language>
+        <message>When needed</message>
+        <sys_class_name>sys_ui_message</sys_class_name>
+        <sys_created_by>foco</sys_created_by>
+        <sys_created_on>2024-07-04 11:41:24</sys_created_on>
+        <sys_id>473b2237830f4e10cf05e030ceaad370</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>when needed</sys_name>
+        <sys_package display_value="NeedIt Virtual Agent Conversations" source="x_606182_nvac">aa0ec7fa83030210cf05e030ceaad3ac</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt Virtual Agent Conversations">aa0ec7fa83030210cf05e030ceaad3ac</sys_scope>
+        <sys_update_name>sys_ui_message_473b2237830f4e10cf05e030ceaad370</sys_update_name>
+        <sys_updated_by>foco</sys_updated_by>
+        <sys_updated_on>2024-07-04 11:41:24</sys_updated_on>
+    </sys_ui_message>
+</record_update>

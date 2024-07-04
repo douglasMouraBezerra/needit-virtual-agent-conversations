@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <applicability_mode>query</applicability_mode>
+        <autopilot_topic>false</autopilot_topic>
+        <category/>
+        <channels/>
+        <connect_queue/>
+        <context_profiles/>
+        <description/>
+        <dialog_acts_enabled>false</dialog_acts_enabled>
+        <expose_on_palette>false</expose_on_palette>
+        <flexible_conversation_switching>true</flexible_conversation_switching>
+        <foundational>false</foundational>
+        <graph>{
+  "graph_api_version": "1.0.66",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "ec62397820e2480da97f5887e71a9edc": {
+          "id": "ec62397820e2480da97f5887e71a9edc",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          },
+          "parameters": [
+            {
+              "type": "String",
+              "value": "",
+              "id": "1d5cf3b5e5f94553b9e4531fb45ace31",
+              "name": "short_description",
+              "required": true,
+              "hint": "Forneça uma descrição resumida do problema",
+              "referenced": false
+            },
+            {
+              "type": "Reference",
+              "value": "",
+              "id": "2b0011afe52f4e8cb5111931d00616be",
+              "name": "cmdb_ci",
+              "required": true,
+              "table": "cmdb_ci",
+              "query": "",
+              "referenced": false
+            },
+            {
+              "type": "String",
+              "value": "",
+              "id": "fafb792764f24ddba1ade23ec2af9b28",
+              "name": "urgency",
+              "required": true,
+              "hint": "",
+              "referenced": false
+            },
+            {
+              "type": "Reference",
+              "value": "",
+              "id": "85490b1a4fa5424282aef53ec325cb11",
+              "name": "caller_id",
+              "required": true,
+              "table": "sys_user",
+              "query": "",
+              "referenced": false
+            }
+          ],
+          "variableIds": [
+            "1d5cf3b5e5f94553b9e4531fb45ace31",
+            "2b0011afe52f4e8cb5111931d00616be",
+            "fafb792764f24ddba1ade23ec2af9b28",
+            "85490b1a4fa5424282aef53ec325cb11"
+          ]
+        },
+        "904cc64219e846b78e7a0362344d0141": {
+          "id": "904cc64219e846b78e7a0362344d0141",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          },
+          "outputVariables": [
+            {
+              "key": "sys_id",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.create_record}}",
+                        "displayValue": "Input Variables➛Create Incident"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "disabled": false
+            }
+          ]
+        },
+        "a4a0840bd06348829cb0a944c3ef3e7a": {
+          "id": "a4a0840bd06348829cb0a944c3ef3e7a",
+          "stepType": "CrudAction",
+          "name": "Create Record",
+          "template": {
+            "query": {
+              "terms": [
+                {
+                  "prefix": "",
+                  "operator": "=",
+                  "operand": "short_description",
+                  "expression": "{{vaInputs.short_description}}",
+                  "deserializedExpression": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "text": ""
+                        },
+                        {
+                          "type": "datapill",
+                          "dataPill": {
+                            "value": "{{vaInputs.short_description}}",
+                            "displayValue": "Input Variables➛Short_description"
+                          },
+                          "children": [
+                            {
+                              "text": ""
+                            }
+                          ]
+                        },
+                        {
+                          "text": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "prefix": "",
+                  "operator": "=",
+                  "operand": "urgency",
+                  "expression": "{{vaInputs.urgency}}"
+                },
+                {
+                  "prefix": "",
+                  "operator": "=",
+                  "operand": "cmdb_ci",
+                  "expression": "{{vaInputs.cmdb_ci}}"
+                },
+                {
+                  "prefix": "",
+                  "operator": "=",
+                  "operand": "caller_id",
+                  "expression": "{{vaInputs.caller_id}}"
+                }
+              ]
+            },
+            "queryString": "short_description={{vaInputs.short_description}}^urgency={{vaInputs.urgency}}^cmdb_ci={{vaInputs.cmdb_ci}}^caller_id={{vaInputs.caller_id}}"
+          },
+          "mode": "create",
+          "record": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "attachments": [
+            {
+              "value": "",
+              "mode": "simple"
+            }
+          ],
+          "variableId": "e612fa63be1745b29dfa4828335c9670"
+        },
+        "f1fd049af1034c208da6a46900b4cf7b": {
+          "id": "f1fd049af1034c208da6a46900b4cf7b",
+          "stepType": "TextOutput",
+          "name": "Incident Create",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "An incident has been created  "
+                    },
+                    {
+                      "type": "emoji",
+                      "emoji": {
+                        "id": "white_check_mark",
+                        "name": "White Heavy Check Mark",
+                        "short_names": [
+                          "white_check_mark"
+                        ],
+                        "colons": ":white_check_mark:",
+                        "emoticons": [],
+                        "unified": "2705",
+                        "skin": null,
+                        "native": "✅"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": " "
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "e63cf49fa2d1429f8e58f8c1289179d9"
+            }
+          ],
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "4bf7110d1cda420db47e0acfc38e487f",
+          "edgeType": "Edge",
+          "source": "ec62397820e2480da97f5887e71a9edc",
+          "target": "a4a0840bd06348829cb0a944c3ef3e7a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "d3994ef4d1ff479786895f310097fc30",
+          "edgeType": "Edge",
+          "source": "a4a0840bd06348829cb0a944c3ef3e7a",
+          "target": "f1fd049af1034c208da6a46900b4cf7b",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "baffd75867d44ba89c955ee96926df36",
+          "edgeType": "Edge",
+          "source": "f1fd049af1034c208da6a46900b4cf7b",
+          "target": "904cc64219e846b78e7a0362344d0141",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "f607022d51f246629103d5c082af5714": {
+      "id": "f607022d51f246629103d5c082af5714",
+      "name": "LiveAgent_application",
+      "value": {
+        "mode": "simple",
+        "value": null
+      },
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "1d5cf3b5e5f94553b9e4531fb45ace31": {
+      "id": "1d5cf3b5e5f94553b9e4531fb45ace31",
+      "name": "short_description",
+      "label": "Short_description",
+      "defaultValue": "",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "input"
+      },
+      "nodeId": "ec62397820e2480da97f5887e71a9edc",
+      "isHidden": false
+    },
+    "2b0011afe52f4e8cb5111931d00616be": {
+      "id": "2b0011afe52f4e8cb5111931d00616be",
+      "name": "cmdb_ci",
+      "label": "Cmdb_ci",
+      "defaultValue": "",
+      "varType": "reference",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "input"
+      },
+      "table": "cmdb_ci",
+      "nodeId": "ec62397820e2480da97f5887e71a9edc",
+      "isHidden": false
+    },
+    "fafb792764f24ddba1ade23ec2af9b28": {
+      "id": "fafb792764f24ddba1ade23ec2af9b28",
+      "name": "urgency",
+      "label": "Urgency",
+      "defaultValue": "",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "input"
+      },
+      "nodeId": "ec62397820e2480da97f5887e71a9edc",
+      "isHidden": false
+    },
+    "85490b1a4fa5424282aef53ec325cb11": {
+      "id": "85490b1a4fa5424282aef53ec325cb11",
+      "name": "caller_id",
+      "label": "Caller_id",
+      "defaultValue": "",
+      "varType": "reference",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "input"
+      },
+      "table": "sys_user",
+      "nodeId": "ec62397820e2480da97f5887e71a9edc",
+      "isHidden": false
+    },
+    "e612fa63be1745b29dfa4828335c9670": {
+      "id": "e612fa63be1745b29dfa4828335c9670",
+      "name": "create_record",
+      "label": "Create Record",
+      "varType": "reference",
+      "table": "incident",
+      "inactive": false,
+      "category": "vaInputs",
+      "nodeId": "a4a0840bd06348829cb0a944c3ef3e7a",
+      "isHidden": false
+    }
+  }
+}</graph>
+        <key_phrases/>
+        <library>true</library>
+        <live_agent>false</live_agent>
+        <model_type>nlu_keyword</model_type>
+        <modify_confirmation_enabled>false</modify_confirmation_enabled>
+        <name>Create Incident 3.0</name>
+        <nlu_intent/>
+        <nlu_intent_label/>
+        <nlu_model/>
+        <nlu_model_label/>
+        <nlu_provider/>
+        <palette_label/>
+        <roles/>
+        <root_topic_id/>
+        <secure_custom_input_control>false</secure_custom_input_control>
+        <source_topic_id/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>foco</sys_created_by>
+        <sys_created_on>2024-07-02 18:11:04</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>ef31751383474210cf05e030ceaad398</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Create Incident 3.0</sys_name>
+        <sys_package display_value="NeedIt Virtual Agent Conversations" source="x_606182_nvac">aa0ec7fa83030210cf05e030ceaad3ac</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt Virtual Agent Conversations">aa0ec7fa83030210cf05e030ceaad3ac</sys_scope>
+        <sys_update_name>sys_cb_topic_ef31751383474210cf05e030ceaad398</sys_update_name>
+        <sys_updated_by>foco</sys_updated_by>
+        <sys_updated_on>2024-07-02 18:21:16</sys_updated_on>
+        <title>Create Incident 3.0</title>
+        <triggerable_by_notification>false</triggerable_by_notification>
+        <type>TOPIC_BLOCK</type>
+    </sys_cb_topic>
+    <sys_translated_text action="delete_multiple" query="documentkey=ef31751383474210cf05e030ceaad398"/>
+</record_update>

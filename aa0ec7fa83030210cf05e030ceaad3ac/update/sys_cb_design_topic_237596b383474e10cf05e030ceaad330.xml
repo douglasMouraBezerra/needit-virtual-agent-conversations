@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_design_topic">
+    <sys_cb_design_topic action="INSERT_OR_UPDATE">
+        <compiled_topic display_value="_PRVW__ab75963b398f0e10c685519de1463726">2375963b838f0e10cf05e030ceaad328</compiled_topic>
+        <design_definition>{"type":"FlowTopic","triggers":[{"type":"Trigger","name":"27bc23dab6464d0d84e09dc6519a5cc2","triggerType":"request","applicability":{"type":"Applicability","mode":"script","value":"true"},"id":"27bc23dab6464d0d84e09dc6519a5cc2"}],"goals":[{"name":"primary","trigger_id":"27bc23dab6464d0d84e09dc6519a5cc2","nodes":[{"type":"StartGoal","goal_id":"primary","greeting_msg":{"type":"String","mode":"string","value":""},"id":"cfdc0cdcb9be4584b817c9c37bd6a22b","name":"Start","expert_mode":false},{"type":"TerminateGoal","goal_id":"primary","confirmation_msg":{"type":"String","mode":"string","value":""},"id":"4825f083fd274fb7b169d727491db98d","name":"End","expert_mode":false},{"type":"ReferenceChoiceInputPrompt","mode":"glide_record","id":"5728b6e967434f8eb12eed73df06aea0","name":"Employee to select","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"variable_id":"7d94d56bdfaf424c98ae5c11b4f962ca","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Informe um usuário\", vaContext.getRequesterLang())"},"acknowledgement":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Obrigado por usar o Virtual Agent!!!\", vaContext.getRequesterLang())"},"confirmation":{"type":"String","mode":"string","value":"gs.getMessageLang(\"É esse funcionario que você deseja ?\", vaContext.getRequesterLang())"},"default_value":{"type":"String","mode":"string","value":""},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"expression_mode":"simple","metadataScript":"","cardName":"","cardFields":[],"no_options_found_message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Não foi encontrado nenhum funcionario que atendensse aos criterios de busca.\", vaContext.getRequesterLang())"},"condition":{"type":"Condition","mode":"glide_query","value":"nameSTARTSWITHBeth Anglin"},"description":""},{"type":"ImageOutputPrompt","url":{"type":"String","mode":"script","value":"(function execute() { var url = gs.getProperty(\"glide.servlet.uri\"); return url + \"team_3474930_1720011562847.png\";})()"},"alt_text":{"type":"String","mode":"string","value":""},"id":"f8dbb3b3e0da4fc4abd7843f5f4de917","name":"Employee Directory","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false}],"edges":[{"type":"Edge","source_node_id":"5728b6e967434f8eb12eed73df06aea0","target_node_id":"4825f083fd274fb7b169d727491db98d","id":"9050f4e841164912b986b11fe739d1f5"},{"type":"Edge","source_node_id":"cfdc0cdcb9be4584b817c9c37bd6a22b","target_node_id":"f8dbb3b3e0da4fc4abd7843f5f4de917","id":"fbff630e582742f89dbbd420cc6d4734"},{"type":"Edge","source_node_id":"f8dbb3b3e0da4fc4abd7843f5f4de917","target_node_id":"5728b6e967434f8eb12eed73df06aea0","id":"649605b503014520a5c70b6f4cece7fb"}],"id":"primary"}],"script_variables":[],"glide_variables":[{"type":"Reference","table":"sys_user","id":"current-user","name":"user","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"Reference","table":"sys_user","reference_qualifier_condition":"nameSTARTSWITHBeth Anglin","id":"7d94d56bdfaf424c98ae5c11b4f962ca","name":"employee_to_select","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false}],"applicability":{"type":"Applicability","mode":"script","value":"true"},"roles":[],"scope":"aa0ec7fa83030210cf05e030ceaad3ac","library-usage":{"type":"Library","input-parameters":[],"return-values-mapping":[]},"domain":"global","topic_type":"TOPIC_BLOCK","channels":[],"dialog_acts_enabled":false,"id":"383d1d23834b8610cf05e030ceaad358","name":"_PRVW__ab75963b398f0e10c685519de1463726","key_phrases":[],"nlu_provider":"","nlu_model":"","nlu_model_label":"","nlu_intent":"","nlu_intent_label":"","flexible_conversation_switching":true,"autopilot_topic":false,"design_categories":[],"triggerable_by_notification":false,"description":"XXXX","model_type":"nlu_keyword","foundational":false,"modify_confirmation_enabled":false,"context_profiles":[],"title":"Test Mensagem de Confirmação e Padrão","library":true,"readOnly":false,"nluMapping":"[]"}</design_definition>
+        <design_topic_id>383d1d23834b8610cf05e030ceaad358</design_topic_id>
+        <graph>{
+  "graph_api_version": "1.0.66",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "cfdc0cdcb9be4584b817c9c37bd6a22b": {
+          "id": "cfdc0cdcb9be4584b817c9c37bd6a22b",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "4825f083fd274fb7b169d727491db98d": {
+          "id": "4825f083fd274fb7b169d727491db98d",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "5728b6e967434f8eb12eed73df06aea0": {
+          "name": "Employee to select",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Informe um usuário "
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "É esse funcionario que você deseja ? "
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Obrigado por usar o Virtual Agent!!!"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": ""
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "variableId": "7d94d56bdfaf424c98ae5c11b4f962ca",
+          "detailDescription": "",
+          "id": "5728b6e967434f8eb12eed73df06aea0",
+          "stepType": "ReferenceChoicePrompt",
+          "mode": "glide_record",
+          "script": "",
+          "metadataScript": "",
+          "cardData": {},
+          "isMultipleSelect": false,
+          "noRecordsResponseMsg": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Não foi encontrado nenhum funcionario que atendensse aos criterios de busca."
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": "nameSTARTSWITHBeth Anglin"
+          },
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        },
+        "f8dbb3b3e0da4fc4abd7843f5f4de917": {
+          "id": "f8dbb3b3e0da4fc4abd7843f5f4de917",
+          "stepType": "ImageOutput",
+          "name": "Employee Directory",
+          "url": {
+            "value": "team_3474930_1720011562847.png",
+            "mode": "db_image"
+          },
+          "altText": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "9050f4e841164912b986b11fe739d1f5",
+          "edgeType": "Edge",
+          "source": "5728b6e967434f8eb12eed73df06aea0",
+          "target": "4825f083fd274fb7b169d727491db98d",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "fbff630e582742f89dbbd420cc6d4734",
+          "edgeType": "Edge",
+          "source": "cfdc0cdcb9be4584b817c9c37bd6a22b",
+          "target": "f8dbb3b3e0da4fc4abd7843f5f4de917",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "649605b503014520a5c70b6f4cece7fb",
+          "edgeType": "Edge",
+          "source": "f8dbb3b3e0da4fc4abd7843f5f4de917",
+          "target": "5728b6e967434f8eb12eed73df06aea0",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "7d94d56bdfaf424c98ae5c11b4f962ca": {
+      "id": "7d94d56bdfaf424c98ae5c11b4f962ca",
+      "name": "employee_to_select",
+      "label": "Employee To Select",
+      "varType": "reference",
+      "table": "sys_user",
+      "category": "vaInputs",
+      "nodeId": "5728b6e967434f8eb12eed73df06aea0",
+      "isHidden": false
+    }
+  }
+}</graph>
+        <name>_PRVW__ab75963b398f0e10c685519de1463726</name>
+        <sys_class_name>sys_cb_design_topic</sys_class_name>
+        <sys_created_by>foco</sys_created_by>
+        <sys_created_on>2024-07-04 10:06:24</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>237596b383474e10cf05e030ceaad330</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FlowTopic</sys_name>
+        <sys_package display_value="NeedIt Virtual Agent Conversations" source="x_606182_nvac">aa0ec7fa83030210cf05e030ceaad3ac</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt Virtual Agent Conversations">aa0ec7fa83030210cf05e030ceaad3ac</sys_scope>
+        <sys_update_name>sys_cb_design_topic_237596b383474e10cf05e030ceaad330</sys_update_name>
+        <sys_updated_by>foco</sys_updated_by>
+        <sys_updated_on>2024-07-04 10:06:24</sys_updated_on>
+        <type>FlowTopic</type>
+    </sys_cb_design_topic>
+</record_update>

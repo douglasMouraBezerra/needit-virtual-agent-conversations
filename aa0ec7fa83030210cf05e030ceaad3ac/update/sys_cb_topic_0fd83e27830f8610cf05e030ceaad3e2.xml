@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <applicability_mode>query</applicability_mode>
+        <autopilot_topic>false</autopilot_topic>
+        <category/>
+        <channels/>
+        <connect_queue/>
+        <context_profiles/>
+        <description>Objetivo e testar o encadeamento de chamadas no VA enquanto os topicos nao estão em uma experiencia.</description>
+        <dialog_acts_enabled>false</dialog_acts_enabled>
+        <expose_on_palette>false</expose_on_palette>
+        <flexible_conversation_switching>false</flexible_conversation_switching>
+        <foundational>false</foundational>
+        <graph>{
+  "graph_api_version": "1.0.66",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "519bb826852749368215239b0ed7f3d0": {
+          "id": "519bb826852749368215239b0ed7f3d0",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Testando encadeamento"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          }
+        },
+        "cfc46a13e3c04bd19316fb1126d560b5": {
+          "id": "cfc46a13e3c04bd19316fb1126d560b5",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "590bd482427d4572a84d9082dbac564c",
+          "edgeType": "Edge",
+          "source": "519bb826852749368215239b0ed7f3d0",
+          "target": "cfc46a13e3c04bd19316fb1126d560b5",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    }
+  }
+}</graph>
+        <key_phrases>Teste Encadeamento de Chamadas</key_phrases>
+        <library>false</library>
+        <live_agent>false</live_agent>
+        <model_type>nlu_keyword</model_type>
+        <modify_confirmation_enabled>false</modify_confirmation_enabled>
+        <name>Teste Encadeamento de Chamadas</name>
+        <nlu_intent/>
+        <nlu_intent_label/>
+        <nlu_model/>
+        <nlu_model_label/>
+        <nlu_provider/>
+        <palette_label/>
+        <roles/>
+        <root_topic_id/>
+        <secure_custom_input_control>false</secure_custom_input_control>
+        <source_topic_id/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>foco</sys_created_by>
+        <sys_created_on>2024-07-03 18:02:27</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>0fd83e27830f8610cf05e030ceaad3e2</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Teste Encadeamento de Chamadas</sys_name>
+        <sys_package display_value="NeedIt Virtual Agent Conversations" source="x_606182_nvac">aa0ec7fa83030210cf05e030ceaad3ac</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt Virtual Agent Conversations">aa0ec7fa83030210cf05e030ceaad3ac</sys_scope>
+        <sys_update_name>sys_cb_topic_0fd83e27830f8610cf05e030ceaad3e2</sys_update_name>
+        <sys_updated_by>foco</sys_updated_by>
+        <sys_updated_on>2024-07-03 18:03:04</sys_updated_on>
+        <title>Teste Encadeamento de Chamadas</title>
+        <triggerable_by_notification>false</triggerable_by_notification>
+        <type>SETUP_TOPIC</type>
+    </sys_cb_topic>
+    <sys_translated_text action="delete_multiple" query="documentkey=0fd83e27830f8610cf05e030ceaad3e2"/>
+</record_update>

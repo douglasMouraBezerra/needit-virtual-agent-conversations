@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_design_topic">
+    <sys_cb_design_topic action="INSERT_OR_UPDATE">
+        <compiled_topic display_value="_PRVW__d8f7d67370434e10312b48afcc4ea36b">e4f79a7783874e10cf05e030ceaad320</compiled_topic>
+        <design_definition>{"type":"FlowTopic","triggers":[{"type":"Trigger","name":"bfaab6fb96364f6f80f103f2381bbb0a","triggerType":"request","applicability":{"type":"Applicability","mode":"script","value":"true"},"id":"bfaab6fb96364f6f80f103f2381bbb0a"}],"goals":[{"name":"primary","trigger_id":"bfaab6fb96364f6f80f103f2381bbb0a","nodes":[{"type":"StartGoal","goal_id":"primary","greeting_msg":{"type":"String","mode":"string","value":""},"id":"cfdc0cdcb9be4584b817c9c37bd6a22b","name":"Start","expert_mode":false},{"type":"TerminateGoal","goal_id":"primary","confirmation_msg":{"type":"String","mode":"string","value":""},"id":"4825f083fd274fb7b169d727491db98d","name":"End","expert_mode":false},{"type":"ImageOutputPrompt","url":{"type":"String","mode":"script","value":"(function execute() { var url = gs.getProperty(\"glide.servlet.uri\"); return url + \"team_3474930_1720011562847.png\";})()"},"alt_text":{"type":"String","mode":"string","value":""},"id":"f8dbb3b3e0da4fc4abd7843f5f4de917","name":"Employee Directory","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"TextOutputPrompt","value":[{"type":"String","mode":"string","value":"gs.getMessageLang(\"Qual  usuario você deseja achar ?\", vaContext.getRequesterLang())"}],"request_feedback":true,"id":"c74422b782c84da1a347576de5ea4060","name":"Response1","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"secure":false},{"type":"InputPrompt","variable_id":"936b900611314bc1bb7b14c5b1464bca","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Informe o nome do usuário para efetuarmos a busca:\", vaContext.getRequesterLang())"},"acknowledgement":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Verificando...\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"request_feedback":true,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"id":"0b7b9afeaa5e4c90a677c5c2f087f7c9","name":"User Name","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"formatType":"Text","validationScript":"","description":""},{"type":"ReferenceChoiceInputPrompt","mode":"glide_record","id":"4be7e1b8325a4aefa5569829c2b12b18","name":"Search User","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"variable_id":"dd3d360e78a54b60a5c95d47c0a16111","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Encontramos esse usuario:\", vaContext.getRequesterLang())"},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"expression_mode":"simple","metadataScript":"","cardName":"","cardFields":[],"no_options_found_message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Não foram encontrados usuarios com esse nome.\", vaContext.getRequesterLang())"},"condition":{"type":"Condition","mode":"glide_query","value":"nameLIKE{{vaInputs.user_name}}^nameSTARTSWITH{{vaInputs.user_name}}"},"description":""}],"edges":[{"type":"Edge","source_node_id":"cfdc0cdcb9be4584b817c9c37bd6a22b","target_node_id":"f8dbb3b3e0da4fc4abd7843f5f4de917","id":"fbff630e582742f89dbbd420cc6d4734"},{"type":"Edge","source_node_id":"f8dbb3b3e0da4fc4abd7843f5f4de917","target_node_id":"c74422b782c84da1a347576de5ea4060","id":"649605b503014520a5c70b6f4cece7fb"},{"type":"Edge","source_node_id":"c74422b782c84da1a347576de5ea4060","target_node_id":"0b7b9afeaa5e4c90a677c5c2f087f7c9","id":"9a8f302eba0542de8b64e1b325325e4a"},{"type":"Edge","source_node_id":"0b7b9afeaa5e4c90a677c5c2f087f7c9","target_node_id":"4be7e1b8325a4aefa5569829c2b12b18","id":"6ff4da5c1577453db9a05df70d4ff5d2"},{"type":"Edge","source_node_id":"4be7e1b8325a4aefa5569829c2b12b18","target_node_id":"4825f083fd274fb7b169d727491db98d","id":"855b77c34eec49b5bd6e29837f0606db"}],"id":"primary"}],"script_variables":[],"glide_variables":[{"type":"Reference","table":"sys_user","id":"current-user","name":"user","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"String","name":"user_name","list":false,"id":"936b900611314bc1bb7b14c5b1464bca","formatType":"Text","validationScript":"","secure":false,"sensitive":false,"aiInput":false},{"type":"Reference","table":"sys_user","reference_qualifier_condition":"nameLIKE{{vaInputs.user_name}}^nameSTARTSWITH{{vaInputs.user_name}}","id":"dd3d360e78a54b60a5c95d47c0a16111","name":"search_user","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false}],"applicability":{"type":"Applicability","mode":"script","value":"true"},"roles":[],"scope":"aa0ec7fa83030210cf05e030ceaad3ac","library-usage":{"type":"Library","input-parameters":[],"return-values-mapping":[]},"domain":"global","topic_type":"TOPIC_BLOCK","channels":[],"dialog_acts_enabled":false,"id":"383d1d23834b8610cf05e030ceaad358","name":"_PRVW__d8f7d67370434e10312b48afcc4ea36b","key_phrases":[],"nlu_provider":"","nlu_model":"","nlu_model_label":"","nlu_intent":"","nlu_intent_label":"","flexible_conversation_switching":true,"autopilot_topic":false,"design_categories":[],"triggerable_by_notification":false,"description":"XXXX","model_type":"nlu_keyword","foundational":false,"modify_confirmation_enabled":false,"context_profiles":[],"title":"Test Mensagem de Confirmação e Padrão","library":true,"readOnly":false,"nluMapping":"[]"}</design_definition>
+        <design_topic_id>383d1d23834b8610cf05e030ceaad358</design_topic_id>
+        <graph>{
+  "graph_api_version": "1.0.66",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "cfdc0cdcb9be4584b817c9c37bd6a22b": {
+          "id": "cfdc0cdcb9be4584b817c9c37bd6a22b",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "4825f083fd274fb7b169d727491db98d": {
+          "id": "4825f083fd274fb7b169d727491db98d",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "f8dbb3b3e0da4fc4abd7843f5f4de917": {
+          "id": "f8dbb3b3e0da4fc4abd7843f5f4de917",
+          "stepType": "ImageOutput",
+          "name": "Employee Directory",
+          "url": {
+            "value": "team_3474930_1720011562847.png",
+            "mode": "db_image"
+          },
+          "altText": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "c74422b782c84da1a347576de5ea4060": {
+          "id": "c74422b782c84da1a347576de5ea4060",
+          "stepType": "TextOutput",
+          "name": "Response1",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Qual  usuario você deseja achar ? "
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "8b02a176ba6f422481e2255ec4cd8f9b"
+            }
+          ],
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "0b7b9afeaa5e4c90a677c5c2f087f7c9": {
+          "id": "0b7b9afeaa5e4c90a677c5c2f087f7c9",
+          "stepType": "TextPrompt",
+          "name": "User Name",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Informe o nome do usuário para efetuarmos a busca: "
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Verificando..."
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "936b900611314bc1bb7b14c5b1464bca",
+          "detailDescription": "",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          },
+          "requestFeedback": true
+        },
+        "4be7e1b8325a4aefa5569829c2b12b18": {
+          "name": "Search User",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Encontramos esse usuario: "
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "dd3d360e78a54b60a5c95d47c0a16111",
+          "detailDescription": "",
+          "id": "4be7e1b8325a4aefa5569829c2b12b18",
+          "stepType": "ReferenceChoicePrompt",
+          "mode": "glide_record",
+          "script": "",
+          "metadataScript": "",
+          "cardData": {},
+          "isMultipleSelect": false,
+          "noRecordsResponseMsg": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Não foram encontrados usuarios com esse nome."
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": "nameLIKE{{vaInputs.user_name}}^nameSTARTSWITH{{vaInputs.user_name}}"
+          },
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        }
+      },
+      "edges": [
+        {
+          "id": "fbff630e582742f89dbbd420cc6d4734",
+          "edgeType": "Edge",
+          "source": "cfdc0cdcb9be4584b817c9c37bd6a22b",
+          "target": "f8dbb3b3e0da4fc4abd7843f5f4de917",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "649605b503014520a5c70b6f4cece7fb",
+          "edgeType": "Edge",
+          "source": "f8dbb3b3e0da4fc4abd7843f5f4de917",
+          "target": "c74422b782c84da1a347576de5ea4060",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "9a8f302eba0542de8b64e1b325325e4a",
+          "edgeType": "Edge",
+          "source": "c74422b782c84da1a347576de5ea4060",
+          "target": "0b7b9afeaa5e4c90a677c5c2f087f7c9",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "6ff4da5c1577453db9a05df70d4ff5d2",
+          "edgeType": "Edge",
+          "source": "0b7b9afeaa5e4c90a677c5c2f087f7c9",
+          "target": "4be7e1b8325a4aefa5569829c2b12b18",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "855b77c34eec49b5bd6e29837f0606db",
+          "edgeType": "Edge",
+          "source": "4be7e1b8325a4aefa5569829c2b12b18",
+          "target": "4825f083fd274fb7b169d727491db98d",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "936b900611314bc1bb7b14c5b1464bca": {
+      "id": "936b900611314bc1bb7b14c5b1464bca",
+      "name": "user_name",
+      "label": "User Name",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs",
+      "encryptionHashFunction": "SHA-256",
+      "encryptionSalt": {
+        "value": "MTcyMDA4Nzk2ODExNCBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+        "mode": "simple"
+      },
+      "nodeId": "0b7b9afeaa5e4c90a677c5c2f087f7c9",
+      "isHidden": false
+    },
+    "dd3d360e78a54b60a5c95d47c0a16111": {
+      "id": "dd3d360e78a54b60a5c95d47c0a16111",
+      "name": "search_user",
+      "label": "Search User",
+      "varType": "reference",
+      "table": "sys_user",
+      "category": "vaInputs",
+      "nodeId": "4be7e1b8325a4aefa5569829c2b12b18",
+      "isHidden": false
+    }
+  }
+}</graph>
+        <name>_PRVW__d8f7d67370434e10312b48afcc4ea36b</name>
+        <sys_class_name>sys_cb_design_topic</sys_class_name>
+        <sys_created_by>foco</sys_created_by>
+        <sys_created_on>2024-07-04 10:17:07</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>a8f79a7783874e10cf05e030ceaad323</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FlowTopic</sys_name>
+        <sys_package display_value="NeedIt Virtual Agent Conversations" source="x_606182_nvac">aa0ec7fa83030210cf05e030ceaad3ac</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt Virtual Agent Conversations">aa0ec7fa83030210cf05e030ceaad3ac</sys_scope>
+        <sys_update_name>sys_cb_design_topic_a8f79a7783874e10cf05e030ceaad323</sys_update_name>
+        <sys_updated_by>foco</sys_updated_by>
+        <sys_updated_on>2024-07-04 10:17:07</sys_updated_on>
+        <type>FlowTopic</type>
+    </sys_cb_design_topic>
+</record_update>

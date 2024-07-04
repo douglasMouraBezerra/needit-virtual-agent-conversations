@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic">
+    <sys_cb_topic action="INSERT_OR_UPDATE">
+        <applicability/>
+        <applicability_mode>query</applicability_mode>
+        <autopilot_topic>false</autopilot_topic>
+        <category/>
+        <channels/>
+        <connect_queue/>
+        <context_profiles/>
+        <description>Procurando Funcionario</description>
+        <dialog_acts_enabled>false</dialog_acts_enabled>
+        <expose_on_palette>false</expose_on_palette>
+        <flexible_conversation_switching>false</flexible_conversation_switching>
+        <foundational>false</foundational>
+        <graph>{
+  "graph_api_version": "1.0.66",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "a894b4716c6d4774b23bbe9eef6e3f01": {
+          "id": "a894b4716c6d4774b23bbe9eef6e3f01",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "8b486a1762084ff982871d82eccbe123": {
+          "id": "8b486a1762084ff982871d82eccbe123",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "d21e0c328fc146929ed9b3cf45e8f282": {
+          "id": "d21e0c328fc146929ed9b3cf45e8f282",
+          "stepType": "TextPrompt",
+          "name": "Employee Name",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Informe o nome do usuário"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "fc23963aef794ee8b71bf38937d072f6",
+          "detailDescription": "",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          },
+          "requestFeedback": true
+        },
+        "bdf40f189fcf4bf785743c3fbc92c0ac": {
+          "name": "Lookup Employee",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Procurando funcionario..."
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "5666e5ae5e454f25b6652eb4fa26c661",
+          "detailDescription": "",
+          "id": "bdf40f189fcf4bf785743c3fbc92c0ac",
+          "stepType": "ReferenceChoicePrompt",
+          "mode": "glide_record",
+          "script": "",
+          "metadataScript": "",
+          "cardData": {},
+          "isMultipleSelect": false,
+          "noRecordsResponseMsg": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Não foi encontrado usuário com esse nome"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": "nameLIKE{{vaInputs.employee_name}}"
+          },
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        },
+        "e91b6e70bf724a3aa525a80e0b7a630d": {
+          "id": "e91b6e70bf724a3aa525a80e0b7a630d",
+          "stepType": "RecordOutput",
+          "name": "Employee Card",
+          "variableId": "5666e5ae5e454f25b6652eb4fa26c661",
+          "cardTemplate": "General",
+          "cardFields": {},
+          "mode": "variable",
+          "tableName": "sys_user",
+          "fields": [
+            "name",
+            "email"
+          ],
+          "cardDefinition": {
+            "name": "Record",
+            "value": "General"
+          },
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": ""
+          }
+        },
+        "0a7331134eb94eea8f94f0b074f35281": {
+          "id": "0a7331134eb94eea8f94f0b074f35281",
+          "stepType": "BooleanPrompt",
+          "name": "Lookup Another Employee",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Deseja buscar outro funcionario ? "
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "87440d522731403b9074238dcb5b9437",
+          "detailDescription": ""
+        },
+        "fdd0bca20873422dad0aeafff036b82b": {
+          "id": "fdd0bca20873422dad0aeafff036b82b",
+          "stepType": "Decision",
+          "name": "Decision"
+        }
+      },
+      "edges": [
+        {
+          "id": "0fab548a7a9e4f3fb0f7953d3b143c6e",
+          "edgeType": "Branch",
+          "source": "fdd0bca20873422dad0aeafff036b82b",
+          "target": "8b486a1762084ff982871d82eccbe123",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.lookup_another_employee=false",
+            "mode": "query"
+          },
+          "label": "false"
+        },
+        {
+          "id": "0528f0b69a174b0e9b230cb1c8c2e37f",
+          "edgeType": "Branch",
+          "source": "fdd0bca20873422dad0aeafff036b82b",
+          "target": "d21e0c328fc146929ed9b3cf45e8f282",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.lookup_another_employee=true",
+            "mode": "query"
+          },
+          "label": "true"
+        },
+        {
+          "id": "7e0ca52b7da446969f85c1e6d4ddaf22",
+          "edgeType": "Edge",
+          "source": "a894b4716c6d4774b23bbe9eef6e3f01",
+          "target": "d21e0c328fc146929ed9b3cf45e8f282",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "75490d3874bb43c398f8659416650803",
+          "edgeType": "Edge",
+          "source": "d21e0c328fc146929ed9b3cf45e8f282",
+          "target": "bdf40f189fcf4bf785743c3fbc92c0ac",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "67326629681f4f4898b322e34df421d0",
+          "edgeType": "Edge",
+          "source": "bdf40f189fcf4bf785743c3fbc92c0ac",
+          "target": "e91b6e70bf724a3aa525a80e0b7a630d",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "f86863327bfc4162ab4d28029ad752e8",
+          "edgeType": "Edge",
+          "source": "e91b6e70bf724a3aa525a80e0b7a630d",
+          "target": "0a7331134eb94eea8f94f0b074f35281",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "929661b41fec46e6b027979f561702fb",
+          "edgeType": "Edge",
+          "source": "0a7331134eb94eea8f94f0b074f35281",
+          "target": "fdd0bca20873422dad0aeafff036b82b",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "e4f1b60008a6486cbc275d70b99e5448": {
+      "id": "e4f1b60008a6486cbc275d70b99e5448",
+      "name": "LiveAgent_application",
+      "value": {
+        "mode": "simple",
+        "value": null
+      },
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "fc23963aef794ee8b71bf38937d072f6": {
+      "id": "fc23963aef794ee8b71bf38937d072f6",
+      "name": "employee_name",
+      "label": "Employee Name",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs",
+      "encryptionHashFunction": "SHA-256",
+      "encryptionSalt": {
+        "value": "MTcxOTg0MDE1MDcwMSBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+        "mode": "simple"
+      },
+      "nodeId": "d21e0c328fc146929ed9b3cf45e8f282",
+      "isHidden": false
+    },
+    "5666e5ae5e454f25b6652eb4fa26c661": {
+      "id": "5666e5ae5e454f25b6652eb4fa26c661",
+      "name": "lookup_employee",
+      "label": "Lookup Employee",
+      "varType": "reference",
+      "table": "sys_user",
+      "category": "vaInputs",
+      "nodeId": "e91b6e70bf724a3aa525a80e0b7a630d",
+      "isHidden": false
+    },
+    "87440d522731403b9074238dcb5b9437": {
+      "id": "87440d522731403b9074238dcb5b9437",
+      "name": "lookup_another_employee",
+      "label": "Lookup Another Employee",
+      "varType": "boolean",
+      "secure": false,
+      "category": "vaInputs",
+      "nodeId": "0a7331134eb94eea8f94f0b074f35281",
+      "isHidden": false
+    }
+  }
+}</graph>
+        <key_phrases>Procurando Funcionario</key_phrases>
+        <library>false</library>
+        <live_agent>false</live_agent>
+        <model_type>nlu_keyword</model_type>
+        <modify_confirmation_enabled>false</modify_confirmation_enabled>
+        <name>Procurando Funcionario</name>
+        <nlu_intent/>
+        <nlu_intent_label/>
+        <nlu_model/>
+        <nlu_model_label/>
+        <nlu_provider/>
+        <palette_label/>
+        <roles/>
+        <root_topic_id/>
+        <secure_custom_input_control>false</secure_custom_input_control>
+        <source_topic_id/>
+        <sys_class_name>sys_cb_topic</sys_class_name>
+        <sys_created_by>foco</sys_created_by>
+        <sys_created_on>2024-07-01 13:22:22</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>7c95233283870210cf05e030ceaad336</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Procurando Funcionario</sys_name>
+        <sys_package display_value="NeedIt Virtual Agent Conversations" source="x_606182_nvac">aa0ec7fa83030210cf05e030ceaad3ac</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt Virtual Agent Conversations">aa0ec7fa83030210cf05e030ceaad3ac</sys_scope>
+        <sys_update_name>sys_cb_topic_7c95233283870210cf05e030ceaad336</sys_update_name>
+        <sys_updated_by>foco</sys_updated_by>
+        <sys_updated_on>2024-07-01 13:29:18</sys_updated_on>
+        <title>Procurando Funcionario</title>
+        <triggerable_by_notification>false</triggerable_by_notification>
+        <type>STANDARD</type>
+    </sys_cb_topic>
+    <sys_translated_text action="delete_multiple" query="documentkey=7c95233283870210cf05e030ceaad336"/>
+</record_update>

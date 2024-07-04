@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_design_topic">
+    <sys_cb_design_topic action="INSERT_OR_UPDATE">
+        <compiled_topic display_value="Topico para teste v1">f1373d13830b4210cf05e030ceaad335</compiled_topic>
+        <design_definition>{"type":"FlowTopic","triggers":[{"type":"Trigger","name":"bb1f35c1bf4d4f09a0fb8b86262c72f5","triggerType":"request","applicability":{"type":"Applicability","mode":"script","value":"true"},"id":"bb1f35c1bf4d4f09a0fb8b86262c72f5"}],"goals":[{"name":"primary","trigger_id":"bb1f35c1bf4d4f09a0fb8b86262c72f5","nodes":[{"type":"StartGoal","goal_id":"primary","greeting_msg":{"type":"String","mode":"string","value":""},"id":"ef24a46c40ab48fdb2a5c492272347ec","name":"Start","expert_mode":false},{"type":"TerminateGoal","goal_id":"primary","confirmation_msg":{"type":"String","mode":"string","value":""},"id":"3136774bd70944a883d5c144b435dcca","name":"End","expert_mode":false},{"type":"InputPrompt","variable_id":"d914bcd66e8b40409723a4df8e94c0b1","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Informe uma descrição resumida do caso.\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"request_feedback":true,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"id":"ca91f95aef7746e6ba35574d9aa0ea76","name":"short_description","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"formatType":"Text","validationScript":"","description":""},{"type":"ReferenceChoiceInputPrompt","mode":"glide_record","id":"d6ab390521a649e6bfe4f20a6130d572","name":"cmdb_ci","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"variable_id":"a1a85de3b8a049b780b5711e8834ea5c","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Escolha um item de configuração\", vaContext.getRequesterLang())"},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"expression_mode":"simple","metadataScript":"","cardName":"","cardFields":[],"no_options_found_message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Não foi encontrado nenhum IC\", vaContext.getRequesterLang())"},"condition":{"type":"Condition","mode":"glide_query","value":"sys_idISNOTEMPTY"},"description":""},{"type":"LibraryCall","library_topic_name":"Create Incident 3.0","library_topic_id":"cd93311f83c74210cf05e030ceaad304","library_topic_is_template":false,"parameter-mappings":[{"parameter-name":"short_description","value":{"type":"String","mode":"string","value":"{{vaInputs.short_description}}"},"metadata":{"type":"String","list":false,"items":[],"use_items":false}},{"parameter-name":"cmdb_ci","value":{"type":"String","mode":"data_pill","value":"{{vaInputs.cmdb_ci}}"},"metadata":{"type":"Reference","list":false,"items":[],"use_items":false,"table":"cmdb_ci"}},{"parameter-name":"urgency","value":{"type":"String","mode":"string","value":"{{vaInputs.urgency}}"},"metadata":{"type":"String","list":false,"items":[],"use_items":false}},{"parameter-name":"caller_id","value":{"type":"String","mode":"data_pill","value":"{{vaInputs.caller}}"},"metadata":{"type":"Reference","list":false,"items":[],"use_items":false,"table":"sys_user"}}],"return-value-mappings":[{"main_topic_variable_namespace":"vaInputs","library_topic_return_parameter_name":"sys_id","main_topic_mapped_variable_name":"sys_id"}],"id":"188f4139b6cc41018bd026d4d94323ad","name":"Create Incident 3.0","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false},{"type":"InputPrompt","variable_id":"9f16582b44c745dcac6a7ffc4d3bd8ec","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Informe a urgência\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"request_feedback":true,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"id":"9b63c6137332491d84cceb5cbcc18a38","name":"urgency","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"formatType":"Text","validationScript":"","description":""},{"type":"ReferenceChoiceInputPrompt","mode":"glide_record","id":"6d600cc9fe604f1c90099e9aff24fb26","name":"caller","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"variable_id":"fd11255bf8754fec897cb19f258267a6","message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Informe o usuario afetado\", vaContext.getRequesterLang())"},"request_feedback":false,"skippable":{"type":"Applicability","mode":"script","value":"false"},"skipreprompt":{"type":"Applicability","mode":"script","value":"false"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"expression_mode":"simple","metadataScript":"","cardName":"","cardFields":[],"no_options_found_message":{"type":"String","mode":"string","value":"gs.getMessageLang(\"Nao foi encontrado usuario\", vaContext.getRequesterLang())"},"condition":{"type":"Condition","mode":"glide_query","value":"sys_idISNOTEMPTY"},"description":""},{"type":"RecordOutputPrompt","mode":"query","table":"incident","fields":["caller_id","short_description","urgency","cmdb_ci"],"request_feedback":true,"id":"de06eb2e653e4a42867c77ca73a03bb9","name":"Card Criado","goal_id":"primary","applicability":{"type":"Applicability","mode":"script","value":"true"},"expert_mode":false,"reference_qualifier_condition":"sys_id={{vaInputs.sys_id}}","condition":{"type":"Condition","mode":"glide_query","value":"sys_id={{vaInputs.sys_id}}"}}],"edges":[{"type":"Edge","source_node_id":"ef24a46c40ab48fdb2a5c492272347ec","target_node_id":"ca91f95aef7746e6ba35574d9aa0ea76","id":"b8a66ff946a542948eb698a06c3302d1"},{"type":"Edge","source_node_id":"ca91f95aef7746e6ba35574d9aa0ea76","target_node_id":"d6ab390521a649e6bfe4f20a6130d572","id":"0008349e9e9e4d259509379d24471d8b"},{"type":"Edge","source_node_id":"d6ab390521a649e6bfe4f20a6130d572","target_node_id":"9b63c6137332491d84cceb5cbcc18a38","id":"a99385e8f0bb4da3aa5691e094668211"},{"type":"Edge","source_node_id":"9b63c6137332491d84cceb5cbcc18a38","target_node_id":"6d600cc9fe604f1c90099e9aff24fb26","id":"48ebc59df1cc475b8c176d3ee9836771"},{"type":"Edge","source_node_id":"6d600cc9fe604f1c90099e9aff24fb26","target_node_id":"188f4139b6cc41018bd026d4d94323ad","id":"7f7ffb4f177246918950a09547b847bb"},{"type":"Edge","source_node_id":"188f4139b6cc41018bd026d4d94323ad","target_node_id":"de06eb2e653e4a42867c77ca73a03bb9","id":"c18e1f2202394331abb14a7fa5bca385"},{"type":"Edge","source_node_id":"de06eb2e653e4a42867c77ca73a03bb9","target_node_id":"3136774bd70944a883d5c144b435dcca","id":"c0cd9cdddb124ea9a8138cf7b43d85cd"}],"id":"primary"}],"script_variables":[{"type":"String","name":"LiveAgent_application","value":{"type":"String","mode":"string"},"list":false,"id":"e185d7fe9cdc4a489055c25c29008b20","formatType":"text","secure":false,"sensitive":false,"aiInput":false}],"glide_variables":[{"type":"Reference","table":"sys_user","id":"current-user","name":"user","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"String","name":"short_description","list":false,"id":"d914bcd66e8b40409723a4df8e94c0b1","formatType":"Text","validationScript":"","secure":false,"sensitive":false,"aiInput":false},{"type":"Reference","table":"cmdb_ci","reference_qualifier_condition":"sys_idISNOTEMPTY","id":"a1a85de3b8a049b780b5711e8834ea5c","name":"cmdb_ci","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"String","name":"urgency","list":false,"id":"9f16582b44c745dcac6a7ffc4d3bd8ec","formatType":"Text","validationScript":"","secure":false,"sensitive":false,"aiInput":false},{"type":"Reference","table":"sys_user","reference_qualifier_condition":"sys_idISNOTEMPTY","id":"fd11255bf8754fec897cb19f258267a6","name":"caller","formatType":"text","secure":false,"sensitive":false,"aiInput":false,"list":false},{"type":"String","name":"sys_id","list":false,"id":"9487fc0d04624adcaa3b61eaa48da24b","formatType":"text","metadata":{"libraryMappingType":"output"},"secure":false,"sensitive":false,"aiInput":false}],"applicability":{"type":"Applicability","mode":"script","value":"true"},"roles":[],"scope":"aa0ec7fa83030210cf05e030ceaad3ac","domain":"global","topic_type":"STANDARD","channels":[],"dialog_acts_enabled":false,"id":"db847953830b4210cf05e030ceaad3bc","name":"Topico para teste v1","key_phrases":["Topico para teste v1","teste"],"nlu_provider":"","nlu_model":"","nlu_model_label":"","nlu_intent":"","nlu_intent_label":"","flexible_conversation_switching":false,"autopilot_topic":false,"design_categories":[],"triggerable_by_notification":false,"description":"","model_type":"nlu_keyword","foundational":false,"modify_confirmation_enabled":false,"context_profiles":[],"title":"Topico para teste v1","library":false,"readOnly":false,"nluMapping":"[]"}</design_definition>
+        <design_topic_id>db847953830b4210cf05e030ceaad3bc</design_topic_id>
+        <graph>{
+  "graph_api_version": "1.0.66",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "ef24a46c40ab48fdb2a5c492272347ec": {
+          "id": "ef24a46c40ab48fdb2a5c492272347ec",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "3136774bd70944a883d5c144b435dcca": {
+          "id": "3136774bd70944a883d5c144b435dcca",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "ca91f95aef7746e6ba35574d9aa0ea76": {
+          "id": "ca91f95aef7746e6ba35574d9aa0ea76",
+          "stepType": "TextPrompt",
+          "name": "short_description",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Informe uma descrição resumida do caso."
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "d914bcd66e8b40409723a4df8e94c0b1",
+          "detailDescription": "",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          },
+          "requestFeedback": true
+        },
+        "d6ab390521a649e6bfe4f20a6130d572": {
+          "name": "cmdb_ci",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Escolha um item de configuração"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "a1a85de3b8a049b780b5711e8834ea5c",
+          "detailDescription": "",
+          "id": "d6ab390521a649e6bfe4f20a6130d572",
+          "stepType": "ReferenceChoicePrompt",
+          "mode": "glide_record",
+          "script": "",
+          "metadataScript": "",
+          "cardData": {},
+          "isMultipleSelect": false,
+          "noRecordsResponseMsg": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Não foi encontrado nenhum IC"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": "sys_idISNOTEMPTY"
+          },
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        },
+        "188f4139b6cc41018bd026d4d94323ad": {
+          "id": "188f4139b6cc41018bd026d4d94323ad",
+          "stepType": "ReusableTopic",
+          "name": "Create Incident 3.0",
+          "fields": [],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "useTemplateTopic": false,
+          "reusableTopicChoice": "Create Incident 3.0",
+          "reusableTopicId": "cd93311f83c74210cf05e030ceaad304",
+          "inputs": {
+            "short_description": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.short_description}}",
+                        "displayValue": "Input Variables➛Short_description"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string",
+              "type": "String"
+            },
+            "cmdb_ci": {
+              "value": "{{vaInputs.cmdb_ci}}",
+              "mode": "data_pill",
+              "type": "Reference",
+              "table": "cmdb_ci"
+            },
+            "urgency": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.urgency}}",
+                        "displayValue": "Input Variables➛Urgency"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string",
+              "type": "String"
+            },
+            "caller_id": {
+              "value": "{{vaInputs.caller}}",
+              "mode": "data_pill",
+              "type": "Reference",
+              "table": "sys_user"
+            }
+          },
+          "outputs": [
+            {
+              "id": "9487fc0d04624adcaa3b61eaa48da24b",
+              "value": "sys_id",
+              "mapping": "sys_id",
+              "preventDisable": false
+            }
+          ],
+          "variableIds": [
+            "9487fc0d04624adcaa3b61eaa48da24b"
+          ],
+          "dynamicTopicBlockName": {
+            "value": "",
+            "mode": "simple"
+          },
+          "inputDynamicModal": {},
+          "outputDynamicModal": {},
+          "outdatedNote": false,
+          "loading": false
+        },
+        "9b63c6137332491d84cceb5cbcc18a38": {
+          "id": "9b63c6137332491d84cceb5cbcc18a38",
+          "stepType": "TextPrompt",
+          "name": "urgency",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Informe a urgência"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "9f16582b44c745dcac6a7ffc4d3bd8ec",
+          "detailDescription": "",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          },
+          "requestFeedback": true
+        },
+        "6d600cc9fe604f1c90099e9aff24fb26": {
+          "name": "caller",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Informe o usuario afetado"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "skipReprompt": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "fd11255bf8754fec897cb19f258267a6",
+          "detailDescription": "",
+          "id": "6d600cc9fe604f1c90099e9aff24fb26",
+          "stepType": "ReferenceChoicePrompt",
+          "mode": "glide_record",
+          "script": "",
+          "metadataScript": "",
+          "cardData": {},
+          "isMultipleSelect": false,
+          "noRecordsResponseMsg": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Nao foi encontrado usuario"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": "sys_idISNOTEMPTY"
+          },
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        },
+        "de06eb2e653e4a42867c77ca73a03bb9": {
+          "id": "de06eb2e653e4a42867c77ca73a03bb9",
+          "stepType": "RecordOutput",
+          "name": "Card Criado",
+          "variableId": "",
+          "cardTemplate": "General",
+          "cardFields": {},
+          "mode": "script",
+          "tableName": "incident",
+          "fields": [
+            "caller_id",
+            "short_description",
+            "urgency",
+            "cmdb_ci"
+          ],
+          "cardDefinition": {
+            "name": "Record",
+            "value": "General"
+          },
+          "requestFeedback": true,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": "sys_id={{vaInputs.sys_id}}"
+          }
+        }
+      },
+      "edges": [
+        {
+          "id": "b8a66ff946a542948eb698a06c3302d1",
+          "edgeType": "Edge",
+          "source": "ef24a46c40ab48fdb2a5c492272347ec",
+          "target": "ca91f95aef7746e6ba35574d9aa0ea76",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "0008349e9e9e4d259509379d24471d8b",
+          "edgeType": "Edge",
+          "source": "ca91f95aef7746e6ba35574d9aa0ea76",
+          "target": "d6ab390521a649e6bfe4f20a6130d572",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "a99385e8f0bb4da3aa5691e094668211",
+          "edgeType": "Edge",
+          "source": "d6ab390521a649e6bfe4f20a6130d572",
+          "target": "9b63c6137332491d84cceb5cbcc18a38",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "48ebc59df1cc475b8c176d3ee9836771",
+          "edgeType": "Edge",
+          "source": "9b63c6137332491d84cceb5cbcc18a38",
+          "target": "6d600cc9fe604f1c90099e9aff24fb26",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "7f7ffb4f177246918950a09547b847bb",
+          "edgeType": "Edge",
+          "source": "6d600cc9fe604f1c90099e9aff24fb26",
+          "target": "188f4139b6cc41018bd026d4d94323ad",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "c18e1f2202394331abb14a7fa5bca385",
+          "edgeType": "Edge",
+          "source": "188f4139b6cc41018bd026d4d94323ad",
+          "target": "de06eb2e653e4a42867c77ca73a03bb9",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "c0cd9cdddb124ea9a8138cf7b43d85cd",
+          "edgeType": "Edge",
+          "source": "de06eb2e653e4a42867c77ca73a03bb9",
+          "target": "3136774bd70944a883d5c144b435dcca",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "e185d7fe9cdc4a489055c25c29008b20": {
+      "id": "e185d7fe9cdc4a489055c25c29008b20",
+      "name": "LiveAgent_application",
+      "value": {
+        "mode": "simple",
+        "value": null
+      },
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "d914bcd66e8b40409723a4df8e94c0b1": {
+      "id": "d914bcd66e8b40409723a4df8e94c0b1",
+      "name": "short_description",
+      "label": "Short_description",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs",
+      "encryptionHashFunction": "SHA-256",
+      "encryptionSalt": {
+        "value": "MTcxOTk0NDc0NjczMCBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+        "mode": "simple"
+      },
+      "nodeId": "ca91f95aef7746e6ba35574d9aa0ea76",
+      "isHidden": false
+    },
+    "a1a85de3b8a049b780b5711e8834ea5c": {
+      "id": "a1a85de3b8a049b780b5711e8834ea5c",
+      "name": "cmdb_ci",
+      "label": "Cmdb_ci",
+      "varType": "reference",
+      "table": "cmdb_ci",
+      "category": "vaInputs",
+      "nodeId": "d6ab390521a649e6bfe4f20a6130d572",
+      "isHidden": false
+    },
+    "9f16582b44c745dcac6a7ffc4d3bd8ec": {
+      "id": "9f16582b44c745dcac6a7ffc4d3bd8ec",
+      "name": "urgency",
+      "label": "Urgency",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs",
+      "encryptionHashFunction": "SHA-256",
+      "encryptionSalt": {
+        "value": "MTcxOTk0NTEzMDg3NSBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+        "mode": "simple"
+      },
+      "nodeId": "9b63c6137332491d84cceb5cbcc18a38",
+      "isHidden": false
+    },
+    "fd11255bf8754fec897cb19f258267a6": {
+      "id": "fd11255bf8754fec897cb19f258267a6",
+      "name": "caller",
+      "label": "Caller",
+      "varType": "reference",
+      "table": "sys_user",
+      "category": "vaInputs",
+      "nodeId": "6d600cc9fe604f1c90099e9aff24fb26",
+      "isHidden": false
+    },
+    "9487fc0d04624adcaa3b61eaa48da24b": {
+      "id": "9487fc0d04624adcaa3b61eaa48da24b",
+      "name": "sys_id",
+      "label": "Sys_id",
+      "defaultValue": "sys_id",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "preventDisable": false,
+      "nodeId": "188f4139b6cc41018bd026d4d94323ad",
+      "isHidden": false
+    }
+  }
+}</graph>
+        <name>Topico para teste v1</name>
+        <sys_class_name>sys_cb_design_topic</sys_class_name>
+        <sys_created_by>foco</sys_created_by>
+        <sys_created_on>2024-07-02 18:37:10</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_id>3937f9df830b4210cf05e030ceaad335</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>FlowTopic</sys_name>
+        <sys_package display_value="NeedIt Virtual Agent Conversations" source="x_606182_nvac">aa0ec7fa83030210cf05e030ceaad3ac</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt Virtual Agent Conversations">aa0ec7fa83030210cf05e030ceaad3ac</sys_scope>
+        <sys_update_name>sys_cb_design_topic_3937f9df830b4210cf05e030ceaad335</sys_update_name>
+        <sys_updated_by>foco</sys_updated_by>
+        <sys_updated_on>2024-07-02 18:37:10</sys_updated_on>
+        <type>FlowTopic</type>
+    </sys_cb_design_topic>
+</record_update>
