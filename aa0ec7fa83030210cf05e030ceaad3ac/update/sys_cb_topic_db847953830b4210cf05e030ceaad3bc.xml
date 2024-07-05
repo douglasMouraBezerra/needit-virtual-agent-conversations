@@ -31,7 +31,22 @@
           "greetingResponse": {
             "mode": "simple",
             "value": ""
-          }
+          },
+          "parameters": [
+            {
+              "type": "Reference",
+              "value": "",
+              "id": "e70714a3c3f94587a8b7b3cc2a93b5a8",
+              "name": "user",
+              "table": "sys_user",
+              "query": "",
+              "referenced": false,
+              "disabled": false
+            }
+          ],
+          "variableIds": [
+            "e70714a3c3f94587a8b7b3cc2a93b5a8"
+          ]
         },
         "3136774bd70944a883d5c144b435dcca": {
           "id": "3136774bd70944a883d5c144b435dcca",
@@ -572,6 +587,20 @@
       "preventDisable": false,
       "nodeId": "188f4139b6cc41018bd026d4d94323ad",
       "isHidden": false
+    },
+    "e70714a3c3f94587a8b7b3cc2a93b5a8": {
+      "id": "e70714a3c3f94587a8b7b3cc2a93b5a8",
+      "name": "user_2",
+      "label": "User (2)",
+      "defaultValue": "",
+      "varType": "reference",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "input"
+      },
+      "table": "sys_user",
+      "nodeId": "ef24a46c40ab48fdb2a5c492272347ec",
+      "isHidden": false
     }
   }
 }</graph>
@@ -596,14 +625,14 @@
         <sys_created_on>2024-07-02 18:25:31</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_id>db847953830b4210cf05e030ceaad3bc</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>Topico para teste v1</sys_name>
         <sys_package display_value="NeedIt Virtual Agent Conversations" source="x_606182_nvac">aa0ec7fa83030210cf05e030ceaad3ac</sys_package>
         <sys_policy/>
         <sys_scope display_value="NeedIt Virtual Agent Conversations">aa0ec7fa83030210cf05e030ceaad3ac</sys_scope>
         <sys_update_name>sys_cb_topic_db847953830b4210cf05e030ceaad3bc</sys_update_name>
         <sys_updated_by>foco</sys_updated_by>
-        <sys_updated_on>2024-07-02 18:37:42</sys_updated_on>
+        <sys_updated_on>2024-07-04 13:53:59</sys_updated_on>
         <title>Topico para teste v1</title>
         <triggerable_by_notification>false</triggerable_by_notification>
         <type>TOPIC_BLOCK</type>
