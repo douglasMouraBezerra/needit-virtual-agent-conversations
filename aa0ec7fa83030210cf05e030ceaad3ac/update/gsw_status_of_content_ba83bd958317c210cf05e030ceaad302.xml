@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="gsw_status_of_content">
+    <gsw_status_of_content action="INSERT_OR_UPDATE">
+        <best_practice_allowed_ever>0</best_practice_allowed_ever>
+        <checksum/>
+        <content display_value="Surveys">7a8c7b87db021050ab1354e4dc9619f2</content>
+        <effective_weight>0</effective_weight>
+        <more_info_visited>false</more_info_visited>
+        <previous_status>0</previous_status>
+        <progress>0</progress>
+        <related_log_entry display_value="08/07/2024 20:29:06">b89371d58317c210cf05e030ceaad395</related_log_entry>
+        <status>0</status>
+        <sys_class_name>gsw_status_of_content</sys_class_name>
+        <sys_created_by>foco</sys_created_by>
+        <sys_created_on>2024-07-08 23:28:59</sys_created_on>
+        <sys_id>ba83bd958317c210cf05e030ceaad302</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>0</sys_name>
+        <sys_package display_value="NeedIt Virtual Agent Conversations" source="x_606182_nvac">aa0ec7fa83030210cf05e030ceaad3ac</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt Virtual Agent Conversations">aa0ec7fa83030210cf05e030ceaad3ac</sys_scope>
+        <sys_update_name>gsw_status_of_content_ba83bd958317c210cf05e030ceaad302</sys_update_name>
+        <sys_updated_by>foco</sys_updated_by>
+        <sys_updated_on>2024-07-08 23:29:06</sys_updated_on>
+    </gsw_status_of_content>
+</record_update>
